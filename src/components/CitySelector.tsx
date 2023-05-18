@@ -1,11 +1,17 @@
-import React from "react";
+import React, { RefObject } from "react";
 import logoSmall from "../images/logo-small.svg";
 
-export const CitySelector: React.FC = () => {
+type CitySelectorProps = {
+  citySelectorRef: RefObject<HTMLDivElement>;
+};
+
+export const CitySelector: React.FC<CitySelectorProps> = ({
+  citySelectorRef,
+}) => {
   return (
     <div className={"citySelector"}>
       <div className={"citySelector__shadow"}></div>
-      <div className={"citySelector__popup"}>
+      <div className={"citySelector__popup"} ref={citySelectorRef}>
         <div className={"citySelector__popup__header"}>
           <div className={"citySelector__popup__header__logo"}>
             <img
