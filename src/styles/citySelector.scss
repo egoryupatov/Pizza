@@ -52,7 +52,53 @@
 }
 
 .citySelector__popup__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px 46px 30px;
+}
+
+.citySelector__popup__actions__search {
+  display: flex;
+  position: relative;
+}
+
+.citySelector__popup__actions__search input {
+  position: relative;
+  width: 350px;
+  display: inline-block;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(92, 99, 112, 0.32);
+  padding: 0 15px 0 40px;
+  color: $black;
+  font-size: $body-large;
+  line-height: 40px;
+}
+
+.citySelector__popup__actions__search img {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  z-index: 1;
+}
+
+.citySelector__popup__actions__bigCities {
+  display: flex;
+  gap: 15px;
+  font-size: $heading-semi-large;
 }
 
 .citySelector__popup__content {
+  height: 370px;
+  overflow: hidden;
+  margin-top: 5px;
+  padding-left: 46px;
+}
+
+.citySelector__popup__content__cities {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
 }

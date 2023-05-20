@@ -3,28 +3,32 @@ import star from "../../images/star.svg";
 
 interface City {
   name: string;
-  time: number;
+  deliveryTime: number;
   rating: number;
 }
 
 const cities: City[] = [
   {
     name: "Санкт-Петербург",
-    time: 30,
+    deliveryTime: 30,
     rating: 4.76,
   },
   {
     name: "Москва",
-    time: 34,
+    deliveryTime: 34,
     rating: 4.51,
   },
 ];
 
 interface DeliveryInfoProps {
+  city: string;
   onCityClick: () => void;
 }
 
-export const DeliveryInfo: React.FC<DeliveryInfoProps> = (props) => {
+export const DeliveryInfo: React.FC<DeliveryInfoProps> = ({
+  city,
+  onCityClick,
+}: DeliveryInfoProps) => {
   return (
     <>
       <div className={"header__left__delivery__info"}>
@@ -33,9 +37,9 @@ export const DeliveryInfo: React.FC<DeliveryInfoProps> = (props) => {
         </span>
         <span
           className={"header__left__delivery__info__city"}
-          onClick={props.onCityClick}
+          onClick={onCityClick}
         >
-          Санкт-Петербург
+          {city ? city : "Санкт-Петербург"}
         </span>
       </div>
       <div className={"header__left__delivery__time"}>

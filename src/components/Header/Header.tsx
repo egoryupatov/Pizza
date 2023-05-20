@@ -6,16 +6,17 @@ import { CitySelector } from "../CitySelector";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 
 export const Header: React.FC = () => {
+  const [city, setCity] = useState<string>("");
   const [citySelectorVisible, setCitySelectorVisible] =
     useState<boolean>(false);
 
   const citySelectorRef: React.MutableRefObject<null> = useRef(null);
 
-  const handleCityClick = (): void => {
+  const handleCitySelectorClick = (): void => {
     setCitySelectorVisible((prevState: boolean) => !prevState);
   };
 
-  useOnClickOutside(citySelectorRef, handleCityClick);
+  useOnClickOutside(citySelectorRef, handleCitySelectorClick);
 
   return (
     <header className="header">
@@ -28,7 +29,7 @@ export const Header: React.FC = () => {
           />
         </div>
         <div className={"header__left__delivery"}>
-          <DeliveryInfo onCityClick={handleCityClick} />
+          <DeliveryInfo onCityClick={handleCitySelectorClick} city={city} />
         </div>
       </div>
       <div className={"header__right"}>
