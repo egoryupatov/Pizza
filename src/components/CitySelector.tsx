@@ -6,7 +6,7 @@ type CitySelectorProps = {
   citySelectorRef: RefObject<HTMLDivElement>;
 };
 
-const citiesRussia: string[] = [
+const cities: string[] = [
   "Абакан",
   "Азов",
   "Александров",
@@ -372,7 +372,35 @@ export const CitySelector: React.FC<CitySelectorProps> = ({
             <span>Санкт-Петербург</span>
           </div>
         </div>
-        <div className={"citySelector__popup__content"}></div>
+        <div className={"citySelector__popup__content"}>
+          <div className={"citySelector__popup__content__cities"}>
+            <div className={"citySelector__popup__content__cities__list"}>
+              <div
+                className={"citySelector__popup__content__cities__gradientTop"}
+              ></div>
+              {cities
+                .filter(
+                  (city: string) =>
+                    searchQuery === "" ||
+                    city.toLowerCase().includes(searchQuery.toLowerCase())
+                )
+                .map((city: string) => (
+                  <span
+                    className={
+                      "citySelector__popup__content__cities__list__item"
+                    }
+                  >
+                    {city}
+                  </span>
+                ))}
+              <div
+                className={
+                  "citySelector__popup__content__cities__gradientBottom"
+                }
+              ></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

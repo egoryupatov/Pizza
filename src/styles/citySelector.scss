@@ -102,3 +102,54 @@
   height: 100%;
   width: 100%;
 }
+
+.citySelector__popup__content__cities__gradientTop {
+  opacity: 1;
+  transform: translateY(0px) translateZ(0px);
+  top: -1px;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(255, 255, 255) 100%
+  );
+}
+
+.citySelector__popup__content__cities__gradientBottom {
+  opacity: 1;
+  transform: translateY(0px) translateZ(0px);
+  position: absolute;
+  bottom: -1px;
+  left: 0px;
+  width: calc(100% - 10px);
+  height: 60px;
+  transition: opacity 0.25s ease-in-out 0s, transform 0.25s ease-in-out 0s;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0) 0%,
+    rgb(255, 255, 255) 100%
+  );
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.citySelector__popup__content__cities__list {
+  position: relative;
+  overflow: scroll;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: 370px;
+}
+
+.citySelector__popup__content__cities__list__item {
+  position: relative;
+  display: block;
+  padding: 6px 30px;
+  font-size: $body-large;
+  line-height: 1;
+  border-bottom: none;
+  color: $black;
+  text-decoration: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
