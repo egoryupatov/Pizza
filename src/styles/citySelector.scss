@@ -63,7 +63,7 @@
   position: relative;
 }
 
-.citySelector__popup__actions__search input {
+.citySelector__popup__actions__search__input {
   position: relative;
   width: 350px;
   display: inline-block;
@@ -74,6 +74,10 @@
   color: $black;
   font-size: $body-large;
   line-height: 40px;
+
+  &:focus {
+    border-color: $orange;
+  }
 }
 
 .citySelector__popup__actions__search img {
@@ -143,13 +147,14 @@
 .citySelector__popup__content__cities__list__item {
   position: relative;
   display: block;
-  padding: 6px 30px;
+  padding: 6px 0px;
   font-size: $body-large;
+  font-weight: $weight-medium;
   line-height: 1;
-  border-bottom: none;
   color: $black;
-  text-decoration: none;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  cursor: pointer;
+}
+
+.citySelector__popup__content__cities__list__item__letter {
+  color: $orange;
 }

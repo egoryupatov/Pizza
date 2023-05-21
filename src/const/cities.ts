@@ -1,12 +1,4 @@
-import React, { ChangeEvent, RefObject, useState } from "react";
-import logoSmall from "../images/logo-small.svg";
-import search from "../images/search.svg";
-
-type CitySelectorProps = {
-  citySelectorRef: RefObject<HTMLDivElement>;
-};
-
-const cities: string[] = [
+export const cities: string[] = [
   "Абакан",
   "Азов",
   "Александров",
@@ -40,8 +32,8 @@ const cities: string[] = [
   "Березовский",
   "Бийск",
   "Биробиджан",
-  "Благовещенск (Амурская область)",
-  "Благовещенск (Республика Башкортостан)",
+  "Благовещенск",
+  "Благовещенск",
   "Бобруйск",
   "Бор",
   "Борисоглебск",
@@ -98,8 +90,8 @@ const cities: string[] = [
   "Елабуга",
   "Елец",
   "Ессентуки",
-  "Железногорск (Красноярский край)",
-  "Железногорск (Курская область)",
+  "Железногорск",
+  "Железногорск",
   "Жигулевск",
   "Жуковский",
   "Заречный",
@@ -127,8 +119,8 @@ const cities: string[] = [
   "Керчь",
   "Кинешма",
   "Кириши",
-  "Киров (Калужская область)",
-  "Киров (Кировская область)",
+  "Киров",
+  "Киров",
   "Кирово-Чепецк",
   "Киселевск",
   "Кисловодск",
@@ -177,7 +169,7 @@ const cities: string[] = [
   "Минеральные Воды",
   "Минусинск",
   "Михайловка",
-  "Михайловск (Ставропольский край)",
+  "Михайловск",
   "Мичуринск",
   "Москва",
   "Мурманск",
@@ -215,7 +207,7 @@ const cities: string[] = [
   "Нягань",
   "Обнинск",
   "Одинцово",
-  "Озерск (Челябинская область)",
+  "Озерск",
   "Октябрьский",
   "Омск",
   "Орел",
@@ -332,76 +324,3 @@ const cities: string[] = [
   "Ялта",
   "Ярославль",
 ];
-
-export const CitySelector: React.FC<CitySelectorProps> = ({
-  citySelectorRef,
-}) => {
-  const [searchQuery, setSearchQuery] = useState<string>("");
-
-  return (
-    <div className={"citySelector"}>
-      <div className={"citySelector__shadow"}></div>
-      <div className={"citySelector__popup"} ref={citySelectorRef}>
-        <div className={"citySelector__popup__header"}>
-          <div className={"citySelector__popup__header__logo"}>
-            <img
-              src={logoSmall}
-              alt="Logo"
-              className={"citySelector__popup__header__logo"}
-            />
-          </div>
-          <div className={"citySelector__popup__header__title"}>
-            921 пиццерия в 17 странах
-          </div>
-        </div>
-        <div className={"citySelector__popup__actions"}>
-          <div className={"citySelector__popup__actions__search"}>
-            <input
-              type={"search"}
-              className={"citySelector__popup__actions__searchContainer__input"}
-              placeholder={"Поиск..."}
-              onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                setSearchQuery(event.target.value)
-              }
-              value={searchQuery}
-            />
-            <img src={search} alt={"search"} />
-          </div>
-          <div className={"citySelector__popup__actions__bigCities"}>
-            <span>Москва</span>
-            <span>Санкт-Петербург</span>
-          </div>
-        </div>
-        <div className={"citySelector__popup__content"}>
-          <div className={"citySelector__popup__content__cities"}>
-            <div className={"citySelector__popup__content__cities__list"}>
-              <div
-                className={"citySelector__popup__content__cities__gradientTop"}
-              ></div>
-              {cities
-                .filter(
-                  (city: string) =>
-                    searchQuery === "" ||
-                    city.toLowerCase().includes(searchQuery.toLowerCase())
-                )
-                .map((city: string) => (
-                  <span
-                    className={
-                      "citySelector__popup__content__cities__list__item"
-                    }
-                  >
-                    {city}
-                  </span>
-                ))}
-              <div
-                className={
-                  "citySelector__popup__content__cities__gradientBottom"
-                }
-              ></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};

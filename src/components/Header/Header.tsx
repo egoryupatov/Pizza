@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import logo from "../../images/logo.svg";
 import { HeaderItems } from "./HeaderItems";
 import { DeliveryInfo } from "./DeliveryInfo";
-import { CitySelector } from "../CitySelector";
+import { CitySelector } from "../CitySelector/CitySelector";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 
 export const Header: React.FC = () => {
@@ -36,7 +36,11 @@ export const Header: React.FC = () => {
         <HeaderItems />
       </div>
       {citySelectorVisible && (
-        <CitySelector citySelectorRef={citySelectorRef} />
+        <CitySelector
+          citySelectorRef={citySelectorRef}
+          onCityClick={handleCitySelectorClick}
+          setCity={setCity}
+        />
       )}
     </header>
   );
