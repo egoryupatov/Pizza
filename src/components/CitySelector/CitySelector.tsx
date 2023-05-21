@@ -1,6 +1,7 @@
 import React, { ChangeEvent, RefObject, useState } from "react";
 import logoSmall from "../../images/logo-small.svg";
 import search from "../../images/search.svg";
+import { ICityGroups } from "../../types/HeaderItem";
 import { cities } from "../../const/cities";
 
 interface CitySelectorProps {
@@ -9,14 +10,10 @@ interface CitySelectorProps {
   onCityClick: () => void;
 }
 
-interface ICityGroups {
-  [key: string]: string[];
-}
-
 const cityGroups: ICityGroups = {};
 
 cities.forEach((city: string): void => {
-  const letter = city[0].toUpperCase();
+  const letter: string = city[0].toUpperCase();
 
   if (!cityGroups[letter]) {
     cityGroups[letter] = [];
@@ -33,6 +30,7 @@ export const CitySelector: React.FC<CitySelectorProps> = ({
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   const handleCityClick = (city: string): void => {
+    localStorage.setItem("city", city);
     setCity(city);
     onCityClick();
   };
@@ -79,8 +77,10 @@ export const CitySelector: React.FC<CitySelectorProps> = ({
             <img src={search} alt={"search"} />
           </div>
           <div className={"citySelector__popup__actions__bigCities"}>
-            <span>Москва</span>
-            <span>Санкт-Петербург</span>
+            <span onClick={() => handleCityClick("Москва")}>Москва</span>
+            <span onClick={() => handleCityClick("Санкт-Петербург")}>
+              Санкт-Петербург
+            </span>
           </div>
         </div>
         <div className={"citySelector__popup__content"}>

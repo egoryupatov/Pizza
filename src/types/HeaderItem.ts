@@ -3,3 +3,7 @@ export interface IHeaderItem {
   name: string;
   alias: string;
 }
+
+export interface ICityGroups {
+  [key: string]: string[];
+}

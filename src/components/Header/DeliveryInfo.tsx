@@ -39,7 +39,7 @@ export const DeliveryInfo: React.FC<DeliveryInfoProps> = ({
           className={"header__left__delivery__info__city"}
           onClick={onCityClick}
         >
-          {city ? city : "Санкт-Петербург"}
+          {city}
         </span>
       </div>
       <div className={"header__left__delivery__time"}>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import logo from "../../images/logo.svg";
 import { HeaderItems } from "./HeaderItems";
 import { DeliveryInfo } from "./DeliveryInfo";
@@ -6,7 +6,15 @@ import { CitySelector } from "../CitySelector/CitySelector";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 
 export const Header: React.FC = () => {
-  const [city, setCity] = useState<string>("");
+  useEffect(() => {
+    if (!localStorage.getItem("city")) {
+      setCitySelectorVisible(true);
+    }
+  }, []);
+
+  const [city, setCity] = useState<string>(
+    localStorage.getItem("city") || "Выберите свой город"
+  );
   const [citySelectorVisible, setCitySelectorVisible] =
     useState<boolean>(false);
 
@@ -17,6 +25,8 @@ export const Header: React.FC = () => {
   };
 
   useOnClickOutside(citySelectorRef, handleCitySelectorClick);
+
+  console.log(!localStorage.getItem("city"));
 
   return (
     <header className="header">
