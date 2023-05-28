@@ -1,5 +1,6 @@
 import React from "react";
 import { INavbarItem } from "../../types/types";
+import { Button } from "../Button";
 
 const items: INavbarItem[] = [
   {
@@ -52,7 +53,9 @@ export const Navbar: React.FC = () => {
           <span>{item.title}</span>
         ))}
       </div>
-      <div className={"navbar__cart"}></div>
+      <div className={"navbar__cart"}>
+        <Button text={"Корзина"} />
+      </div>
     </div>
   );
 };
