@@ -2,7 +2,7 @@ import React from "react";
 import coins from "../../images/coins.svg";
 import deals from "../../images/deals.svg";
 import dashboard from "../../images/dashboard.svg";
-import { IHeaderItem } from "../../types/HeaderItem";
+import { IHeaderItem } from "../../types/types";
 
 const items: IHeaderItem[] = [
   {

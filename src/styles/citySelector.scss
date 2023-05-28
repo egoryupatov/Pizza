@@ -24,10 +24,12 @@
 }
 
 .citySelector__popup {
+  display: flex;
+  flex-direction: column;
+  width: 1020px;
   background: $white;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 60px;
   border-radius: 20px;
-  width: 1020px;
   z-index: 3;
 }
 
@@ -93,21 +95,31 @@
   font-size: $heading-semi-large;
 }
 
-.citySelector__popup__content {
-  height: 370px;
-  overflow: hidden;
-  margin-top: 5px;
-  padding-left: 46px;
+.citySelector__popup__actions__bigCities__item {
+  cursor: pointer;
 }
 
-.citySelector__popup__content__cities {
-  position: relative;
-  overflow: hidden;
-  height: 100%;
+.citySelector__popup__cities {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   width: 100%;
+  height: 3100px;
+  padding: 30px 46px 15px;
 }
 
-.citySelector__popup__content__cities__gradientTop {
+.test {
+  height: auto;
+  max-height: 370px;
+  overflow: scroll;
+}
+
+.citySelector__popup__cities__item {
+  display: flex;
+  width: 300px;
+}
+
+/*.citySelector__popup__content__cities__gradientTop {
   opacity: 1;
   transform: translateY(0px) translateZ(0px);
   top: -1px;
@@ -133,9 +145,10 @@
   );
   pointer-events: none;
   z-index: 1000;
-}
+}*/
 
 .citySelector__popup__content__cities__list {
+  display: flex;
   position: relative;
   overflow: scroll;
   width: 100%;
@@ -144,10 +157,10 @@
   max-height: 370px;
 }
 
-.citySelector__popup__content__cities__list__item {
+.citySelector__popup__cities__list {
+  display: flex;
   position: relative;
-  display: block;
-  padding: 6px 0px;
+  padding: 6px 30px;
   font-size: $body-large;
   font-weight: $weight-medium;
   line-height: 1;
@@ -155,6 +168,7 @@
   cursor: pointer;
 }
 
-.citySelector__popup__content__cities__list__item__letter {
+.citySelector__popup__cities__letter {
+  margin-top: 5px;
   color: $orange;
 }
